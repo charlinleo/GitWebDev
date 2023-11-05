@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('namaS');
+            $table->integer('durasiS');
+            $table->string('imageS');
+            $table->decimal('hargaS', 8, 2);
         });
     }
 

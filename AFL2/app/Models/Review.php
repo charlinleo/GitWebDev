@@ -13,6 +13,5 @@ class Review extends Model
         'user',
         'rating',
         'comment',
-
     ];
 }

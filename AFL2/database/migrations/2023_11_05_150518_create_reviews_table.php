@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user');
+            $table->foreignId('user_id')->constrained(table: 'users', indexName:'id')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('comment');
             $table->timestamps();
         });
     }
