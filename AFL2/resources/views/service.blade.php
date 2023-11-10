@@ -21,7 +21,6 @@
                         <th>PRODUK</th>
                         <th>JASA</th>
                         <th>DURASI PENGERJAAN</th>
-                        <th>ACTION</th>
                     </tr>
 
 
