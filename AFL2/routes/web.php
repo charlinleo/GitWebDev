@@ -45,8 +45,3 @@ Route::get('/about', function () {
         "maintitle" => " "
     ]);
 });
-
-
-Route::get('/project',[Controller::class,'index']);
-
-Route::get('/project/{code}',[Controller::class,'show']);
