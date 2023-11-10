@@ -46,14 +46,6 @@
                             1 jam
                             @endif ()
                         </td>
-                        <td>
-                            <a>
-                                <button class="btn btn-warning">Update</button>
-                            </a>
-                            <a>
-                                <button class="btn btn-danger">Delete</button>
-                            </a>
-                        </td>
                     </tr>
                     @endforeach
                 </thead>
