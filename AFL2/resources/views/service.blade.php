@@ -12,11 +12,6 @@
         <div class="card-body">
             <h1>Jasa yang Ditawarkan</h1>
             <br>
-
-            <form action="view_add.php" method="POST">
-                <button class="btn btn-primary">Tambah Produk dan Jasa</button>
-            </form>
-
             <br>
             <br>
             <table class="table">
