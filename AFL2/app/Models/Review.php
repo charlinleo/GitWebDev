@@ -14,4 +14,6 @@ class Review extends Model
         'rating',
         'comment',
     ];
+
+
 }
