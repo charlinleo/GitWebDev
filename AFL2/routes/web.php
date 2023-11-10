@@ -14,5 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', 
+    [
+        "pagetitle" => "AutoSight",
+        "maintitle" => " "
+    ]);
 });
+
+
+Route::get('/service', function () {
+    return view('service', 
+    [
+        "pagetitle" => "AutoSight",
+        "maintitle" => " "
+    ]);
+});
+
+Route::get('/review', function () {
+    return view('review', 
+    [
+        "pagetitle" => "AutoSight",
+        "maintitle" => " "
+    ]);
+});
+
+Route::get('/about', function () {
+    return view('about', 
+    [
+        "pagetitle" => "AutoSight",
+        "maintitle" => " "
+    ]);
+});
+
+
+Route::get('/project',[Controller::class,'index']);
+
+Route::get('/project/{code}',[Controller::class,'show']);
