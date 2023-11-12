@@ -37,7 +37,7 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">About Autosight</h4>
                         <p class="lead mb-0">
                             <a class="text-light" href="https://linktr.ee/autosight?fbclid=PAAab8D7zRbbZgGddktmzNnlyKX24j8A3TxU26rEKxsrn9aV2dy0FO4G82ebQ_aem_AZdbqfkZp5iSqEAS_sQu1yG5t9yrHAcjl6ASmXCyj8N8QaVncKb764O90_nFewRt0Mk">Autosight</a>
                         </p>

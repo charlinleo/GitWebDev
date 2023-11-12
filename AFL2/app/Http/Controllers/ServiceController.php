@@ -8,30 +8,48 @@ use App\Models\Service;
 
 class ServiceController extends Controller
 {
-    public function Service(){
-        return view('service',
-        [
-            "pagetitle" => "Service",
-            "maintitle" => "Service",
-            'services' => Service::all()
-        ]);
+    public function Service()
+    {
+        return view(
+            'service',
+            [
+                "pagetitle" => "Service",
+                "maintitle" => "Service",
+                'services' => Service::all()
+            ]
+        );
     }
 
-    public function ServiceHome(){
-        return view('index',
-        [
-            "pagetitle" => "Service",
-            "maintitle" => "Service",
-            'services' => Service::all()
-        ]);
+    public function ServiceHome()
+    {
+        return view(
+            'index',
+            [
+                "pagetitle" => "Service",
+                "maintitle" => "Service",
+                'services' => Service::all()
+            ]
+        );
     }
 
-    public function Show(Service $service){
-        return view('showService',
-        [
+    public function Show(Service $service)
+    {
+        return view(
+            'showService',
+            [
+                "pagetitle" => "Service",
+                "maintitle" => "Service",
+                'services' => $service
+            ]
+        );
+    }
+
+    public function ShowHome()
+    {
+        return view('show', [
             "pagetitle" => "Service",
-            "maintitle" => "Service",
-            'services' => $service
+            "maintitle" => "Data Service",
+            'services' => Service::all()
         ]);
     }
 }

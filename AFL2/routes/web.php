@@ -24,6 +24,8 @@ Route::get('/service', [ServiceController::class,'Service']);
 
 Route::get('/service/{service}', [ServiceController::class,'Show']);
 
+Route::get('/showS', [ServiceController::class,'ShowHome']);
+
 Route::get('/about', function () {
     return view('about',
     [
@@ -31,4 +33,5 @@ Route::get('/about', function () {
         "maintitle" => "About"
     ]);
 });
+
 

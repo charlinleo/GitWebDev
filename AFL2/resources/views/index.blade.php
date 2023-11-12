@@ -23,7 +23,7 @@
         </div>
     </header>
 
-    <section class="page-section portfolio" id="portfolio">
+    <section>
         <div class="container">
 
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Service</h2>
@@ -35,15 +35,12 @@
             </div>
 
             <div class="row justify-content-center">
-
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-4 mb-5">
+                            <div class="mx-auto">
+                                <a href="/showS"><img class="img-fluid" src="{{ asset('img/logo.jpeg') }}" alt="..." /></a>
+                            </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/logo.jpeg') }}" alt="..." />
-                    </div>
                 </div>
             </div>
         </div>
@@ -80,40 +77,5 @@
 
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Autosight</small></div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
-        aria-hidden="true">
-        @foreach ($services as $service)
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                            aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                        {{ $service['namaS'] }}</h2>
-
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <h2 class="mb-4">Durasi : {{ $service['durasiS'] }}</h2>
-                                    <h2 class="mb-4">Harga : {{ $service['hargaS'] }}</h2>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
     </div>
 @endsection
