@@ -4,53 +4,32 @@
 @section('maintitle')
 @section('layout_content')
 
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
 
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 mt-5">Service</h2>
 
-<body>
-    <div class="container p-3">
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
 
-        <div class="card-body">
-            <h1>Jasa yang Ditawarkan</h1>
-            <br>
-            <br>
-            <br>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>NO</th>
-                        <th>PRODUK</th>
-                        <th>JASA</th>
-                        <th>DURASI PENGERJAAN</th>
-                    </tr>
-
-
-                    @php ( $product = ['Headlamp', 'Foglamp', 'Mini Projie'])
-
-                    @foreach ( $product as $pro )
-                    @if ( $loop->even )
-                    @php ( $jasa = "Rp 300.000" )
-                    @else
-                    @php ( $jasa = "Rp 450.000" )
-                    @endif
-
-                    <tr>
-                        <td>{{ $loop -> index+1 }}</td>
-                        <td>{{ $pro }}</td>
-                        <td>{{ $jasa }}</td>
-                        <td> @if ( $loop -> first )
-                            2 jam
-                            @elseif ( $loop -> last )
-                            3 jam
-                            @else
-                            1 jam
-                            @endif ()
-                        </td>
-                    </tr>
-                    @endforeach
-                </thead>
-            </table>
+            <div class="row justify-content-center">
+                @foreach ($services as $service)
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto">
+                            <a href="/service/{{ $service['id'] }}"><img class="img-fluid" src="{{ 'img/' . $service['imageS'] }}" alt="..." /></a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
+    </section>
+
+
+    <div class="copyright mt-5 py-4 text-center text-white">
+        <div class="container"><small>Copyright &copy; Autosight</small></div>
     </div>
-    </div>
-</body>
+
 @endsection

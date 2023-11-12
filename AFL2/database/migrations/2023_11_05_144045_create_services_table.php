@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('namaS');
-            $table->integer('durasiS');
-            $table->string('imageS');
+            $table->string('durasiS');
             $table->decimal('hargaS', 8, 2);
+            $table->string('imageS');
         });
     }
 
