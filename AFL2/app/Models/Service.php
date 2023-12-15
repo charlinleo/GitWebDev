@@ -13,5 +13,11 @@ class Service extends Model
         'durasiS',
         'hargaS',
         'imageS',
+        'product_id',
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class,'product_id');
+    }
 }

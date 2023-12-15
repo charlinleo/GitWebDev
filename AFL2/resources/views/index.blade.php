@@ -6,7 +6,7 @@
 
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
-            <img class="masthead-avatar mb-5" src="{{ asset('img/logo.jpeg') }}" alt="..." />
+            <img class="masthead-avatar mb-5" src="{{ asset('img/logo.jpeg') }}" alt="" />
 
             <h1 class="masthead-heading text-uppercase mb-0">Autosight</h1>
 
@@ -26,7 +26,7 @@
     <section>
         <div class="container">
 
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Service</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-1 pt-5">Service</h2>
 
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -36,11 +36,12 @@
 
             <div class="row justify-content-center">
                 <div class="row justify-content-center">
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="mx-auto">
-                                <a href="/showS"><img class="img-fluid" src="{{ asset('img/logo.jpeg') }}" alt="..." /></a>
-                            </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="mx-auto">
+                            <a href="/showS"><img class="img-fluid" src="{{ asset('img/logo.jpeg') }}"
+                                    alt="..." /></a>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

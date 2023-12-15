@@ -15,45 +15,51 @@ class ServiceSeeder extends Seeder
     public function run(): void
     {
         DB::table("services")->insert([
-            'namaS' => 'Pemasangan Sein Superbright V3 LED',
+            'namaS' => 'Pemasangan Sein',
             'durasiS' => '± 15 menit',
             'hargaS'=> '60000',
+            'product_id'=> '1',
             'imageS'=> 'mobil1.jpeg',
         ]);
 
         DB::table("services")->insert([
-            'namaS' => 'Pemasangan License Plate LED Lamp',
+            'namaS' => 'Pemasangan Lampu Mundur',
             'durasiS' => '± 10 menit',
             'hargaS'=> '20000',
+            'product_id'=> '2',
             'imageS'=> 'mobil2.jpeg',
         ]);
 
         DB::table("services")->insert([
-            'namaS' => 'Pemasangan LED Bicolor Foglamp',
-            'durasiS' => '± 40 menit',
-            'hargaS'=> '300000',
-            'imageS' => 'mobil3.jpeg',
+            'namaS' => 'Pemasangan Lampu Sein',
+            'durasiS' => '± 15 menit',
+            'hargaS'=> '20000',
+            'product_id'=> '4',
+            'imageS'=> 'mobil3.jpeg',
         ]);
 
         DB::table("services")->insert([
             'namaS' => 'Pemasangan LED Cabin Light',
             'durasiS' => '± 20 menit',
             'hargaS'=> '80000',
+            'product_id'=> '3',
             'imageS' => 'mobil4.jpeg',
         ]);
 
         DB::table("services")->insert([
-            'namaS' => 'Pemasangan Sein Superbright',
+            'namaS' => 'Pemasangan Resistor',
             'durasiS' => '± 15 menit',
             'hargaS'=> '60000',
+            'product_id'=> '5',
             'imageS' => 'mobil5.jpeg',
         ]);
 
         DB::table("services")->insert([
-            'namaS' => 'Pemasangan Embargo Japanese Horn',
-            'durasiS' => '± 30 menit',
-            'hargaS'=> '120000',
-            'imageS' => 'mobil6.jpeg',
+            'namaS' => 'Pemasangan Lampu Mundur',
+            'durasiS' => '± 15 menit',
+            'hargaS'=> '20000',
+            'product_id'=> '6',
+            'imageS'=> 'mobil6.jpeg',
         ]);
     }
 }

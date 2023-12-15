@@ -20,6 +20,8 @@
                         <h5 class="card-title text-center">{{ $services['namaS'] }}</h5>
                         <p class="card-text text-center">Durasi : {{ $services['durasiS'] }}</p>
                         <p class="card-text text-center">Harga : {{ $services['hargaS'] }}</p>
+                        <p class="card-text text-center">Products : {{ $services->products->namaP }}</p>
+                        <p class="card-text text-center">Harga Products : {{ $services->products->hargaP }}/pcs</p>
                         <a href="/service" class="btn btn-primary text-center">Back</a>
                     </div>
                 </div>
