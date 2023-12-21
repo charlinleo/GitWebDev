@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -13,7 +16,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product.index', [
+            "pagetitle" => 'Products',
+            "maintitle" => 'Products',
+            'product' => Product::all()
+        ]);
     }
 
     /**
@@ -21,15 +28,45 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::check()) {
+            if (Auth::user()->isAdmin()) {
+                $categories = Category::all(); // Retrieve categories for the create form
+                return view(
+                    'product.create',
+                    [
+                        "pagetitle" => 'Add Product',
+                        "maintitle" => 'Add Product Detail',
+                    ],
+                    compact('categories')
+                );
+            } else {
+                return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            }
+        } else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        //
+        if (Auth::check() && Auth::user()->isAdmin()) {
+            $category_id = (int) $request->input('category_id');
+
+            // Create the product
+            Product::create([
+                'product_name' => $request->input('product_name'),
+                'category_id' => $category_id,
+                'product_price' => $request->input('product_price'),
+                'product_desc' => $request->input('product_desc'),
+            ]);
+
+            return redirect()->route('product.index')->with('success', 'Product created successfully');
+        } else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
@@ -43,17 +80,45 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        if (Auth::check() && Auth::user()->isAdmin()) {
+            $categories = Category::all();
+            return view('product.edit', [
+                "pagetitle" => 'Edit Product',
+                "maintitle" => 'Edit Product Detail',
+            ], compact('product', 'categories'));
+        } else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        if (Auth::check() && Auth::user()->isAdmin()) {
+            $request->validate([
+                // Your validation rules here
+            ]);
+
+            // Update the product
+            $product->update([
+                'product_name' => $request->input('product_name'),
+                'category_id' => $request->input('category_id'),
+                'product_desc' => $request->input('product_desc'),
+                'product_price' => $request->input('product_price'),
+            ]);
+
+            return redirect()->route('product.index')->with('success', 'Product updated successfully');
+        } else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
@@ -61,6 +126,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if (Auth::check() && Auth::user()->isAdmin()) {
+
+            $product->delete();
+
+            return redirect()->route('product.index')->with('success', 'Product deleted successfully');
+        } else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 }

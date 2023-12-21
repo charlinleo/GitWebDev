@@ -13,7 +13,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('service.index', [
+            "pagetitle" => 'Services',
+            "maintitle" => 'Services',
+            'service' => Service::all()
+        ]);
     }
 
     /**

@@ -48,4 +48,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    public function isAdmin(): bool
+    {
+        if ($this->role_id == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isMember(): bool
+    {
+        if ($this->role_id == 2) {
+            return true;
+        }
+        return false;
+    }
 }

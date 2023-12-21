@@ -16,11 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('product_name');
             $table->string('product_price');
-            $table->string('brand');
             $table->string('product_desc');
-            $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')->references('id')->on('categories');
-            $table->string('imageP');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

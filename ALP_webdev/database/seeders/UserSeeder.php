@@ -22,5 +22,6 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'remember_token' => Str::random(10)
         ]);
+        
     }
 }

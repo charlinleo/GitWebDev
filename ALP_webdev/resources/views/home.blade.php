@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center text-black">
+        <div class="col-md-8 position-absolute top-50 start-50 translate-middle">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 

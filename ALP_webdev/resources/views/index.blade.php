@@ -74,8 +74,4 @@
             </div>
         </div>
     </footer>
-
-    <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright &copy; Autosight</small></div>
-    </div>
 @endsection
