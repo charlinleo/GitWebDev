@@ -11039,3 +11039,12 @@ html {
   background-color: #000000;
   opacity: 1;
 }
+.hover-effect {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Change cursor to indicate clickability */
+}
+
+.hover-effect:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: translateY(-5px); /* Slight upward lift */
+}

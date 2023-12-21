@@ -19,7 +19,7 @@
                 @foreach ($services as $service)
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto">
-                            <a href="service/{{ $service['id'] }}"><img class="img-fluid" src="{{ 'img/' . $service['imageS'] }}" alt="..." /></a>
+                            <a href="service/{{ $service['id'] }}"><img class="img-fluid hover-effect" src="{{ 'img/' . $service['imageS'] }}" alt="..." /></a>
                         </div>
                     </div>
                 @endforeach

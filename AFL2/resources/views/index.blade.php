@@ -6,7 +6,7 @@
 
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
-            <img class="masthead-avatar mb-5" src="{{ asset('img/logo.jpeg') }}" alt="" />
+            <img class="masthead-avatar mb-5" src="{{ asset('img/logo2.jpeg') }}" alt="" />
 
             <h1 class="masthead-heading text-uppercase mb-0">Autosight</h1>
 
@@ -38,8 +38,9 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="mx-auto">
-                            <a href="/showS"><img class="img-fluid" src="{{ asset('img/logo.jpeg') }}"
-                                    alt="..." /></a>
+                            <a href="/showS">
+                                <img class="img-fluid hover-effect" src="{{ asset('img/logo.jpeg') }}" alt="..." />
+                            </a>
                         </div>
                     </div>
                 </div>
