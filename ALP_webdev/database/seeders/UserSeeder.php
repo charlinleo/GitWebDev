@@ -22,6 +22,15 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'remember_token' => Str::random(10)
         ]);
-        
+
+        User::create([
+            'name' => 'Brian',
+            'email' => 'test@coba.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12341234'),
+            'role_id' => 2,
+            'remember_token' => Str::random(10)
+        ]);
+
     }
 }
