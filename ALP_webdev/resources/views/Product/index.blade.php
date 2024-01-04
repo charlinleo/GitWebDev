@@ -15,39 +15,38 @@
             </div>
             <div class="d-flex flex-wrap">
                 @foreach ($product as $pro)
-                    <div class="">
-                        <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
-                            <div class="card-body justify-content-center">
-                                <img src="{{ asset('img/' . $pro['product_image']) }}" alt="{{ $pro['product_name'] }} Image"
-                                        style="width: 200px; height: 200px;">
-                                <h5 class="card-title text-center">{{ $pro['product_name'] }}</h5>
-                                <p class="card-text">Kategori :</p>
-                                <p class="card-text text-center">{{ $pro->category->category_name }}</p>
-                                <p class="card-text">Harga Products :</p>
-                                <p class="card-text text-center">{{ $pro['product_price'] }}/pcs</p>
-                                <p class="card-text">Deskripsi :</p>
-                                <p class="card-text text-break text-center">{{ $pro['product_desc'] }}</p>
-                                <p class="card-text ">
-                                    @if (Auth::check() && Auth::user()->isAdmin())
-                                        <form action="{{ route('product.destroy', $pro->id) }}" method="POST"
-                                            style="display: inline;">
-                                            <a href="{{ route('product.edit', [$pro->id]) }}"
-                                                class="btn btn-warning text-white">Edit</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
-                                        </form>
-                                    @endif
-                                </p>
-                            </div>
+                    <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
+                        <div class="card-body justify-content-center">
+                            <h5 class="card-title text-center fw-bolder">{{ $pro['product_name'] }}</h5>
+                            <p class="card-text text-center">Kategori :</p>
+                            <p class="card-text text-center fw-bold">{{ $pro->category->category_name }}</p>
+                            <p class="card-text text-center">Harga Products :</p>
+                            <p class="card-text text-center fw-bold">{{ $pro['product_price'] }}/pcs</p>
+                            <p class="card-text text-center">Deskripsi :</p>
+                            <p class="card-text text-break text-center fw-bold">{{ $pro['product_desc'] }}</p>
+                            <img src="{{ asset('img/' . $pro['product_image']) }}" alt="{{ $pro['product_name'] }} Image" style="width: 200px; height: 200px;" class="rounded mx-auto d-block">
+                            <p class="card-text ">
+                                @if (Auth::check() && Auth::user()->isAdmin())
+                                    <form action="{{ route('product.destroy', $pro->id) }}" method="POST"
+                                        style="display: inline;">
+                                        <a href="{{ route('product.edit', [$pro->id]) }}"
+                                            class="btn btn-warning text-white">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                    </form>
+                                @endif
+                            </p>
                         </div>
                     </div>
+                @endforeach
             </div>
         </div>
 
         @if (Auth::check() && Auth::user()->isAdmin())
-            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Product</a>
+            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+                style="width: 50%">Add Product</a>
         @endif
 
     </section>

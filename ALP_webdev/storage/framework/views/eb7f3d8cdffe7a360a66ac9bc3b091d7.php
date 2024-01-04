@@ -46,7 +46,6 @@
                         <input type="text" class="form-control" id="product_price" name="product_price" placeholder="Enter Product Price" required>
                     </div>
 
-                    <!-- Add more form fields as needed -->
                     <br>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>

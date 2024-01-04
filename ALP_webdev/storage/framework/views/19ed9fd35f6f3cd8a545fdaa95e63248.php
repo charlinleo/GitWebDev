@@ -15,13 +15,14 @@
                 <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
                         <div class="card-body justify-content-center">
-                            <h5 class="card-title text-center"><?php echo e($pro['product_name']); ?></h5>
-                            <p class="card-text">Kategori :</p>
-                            <p class="card-text text-center"><?php echo e($pro->category->category_name); ?></p>
-                            <p class="card-text">Harga Products :</p>
-                            <p class="card-text text-center"><?php echo e($pro['product_price']); ?>/pcs</p>
-                            <p class="card-text">Deskripsi :</p>
-                            <p class="card-text text-break text-center"><?php echo e($pro['product_desc']); ?></p>
+                            <h5 class="card-title text-center fw-bolder"><?php echo e($pro['product_name']); ?></h5>
+                            <p class="card-text text-center">Kategori :</p>
+                            <p class="card-text text-center fw-bold"><?php echo e($pro->category->category_name); ?></p>
+                            <p class="card-text text-center">Harga Products :</p>
+                            <p class="card-text text-center fw-bold"><?php echo e($pro['product_price']); ?>/pcs</p>
+                            <p class="card-text text-center">Deskripsi :</p>
+                            <p class="card-text text-break text-center fw-bold"><?php echo e($pro['product_desc']); ?></p>
+                            <img src="<?php echo e(asset('img/' . $pro['product_image'])); ?>" alt="<?php echo e($pro['product_name']); ?> Image" style="width: 200px; height: 200px;" class="rounded mx-auto d-block">
                             <p class="card-text ">
                                 <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
                                     <form action="<?php echo e(route('product.destroy', $pro->id)); ?>" method="POST"
@@ -43,7 +44,7 @@
 
         <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
             <a href="<?php echo e(route('product.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto"
-                style="width: 90%">Add Product</a>
+                style="width: 50%">Add Product</a>
         <?php endif; ?>
 
     </section>
