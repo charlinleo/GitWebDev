@@ -18,9 +18,8 @@
                     <div class="">
                         <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
                             <div class="card-body justify-content-center">
-                                <img src="{{ asset('images/' . $writer['image']) }}" alt="{{ $pro['name'] }} Image"
+                                <img src="{{ asset('img/' . $pro['product_image']) }}" alt="{{ $pro['product_name'] }} Image"
                                         style="width: 200px; height: 200px;">
-
                                 <h5 class="card-title text-center">{{ $pro['product_name'] }}</h5>
                                 <p class="card-text">Kategori :</p>
                                 <p class="card-text text-center">{{ $pro->category->category_name }}</p>
