@@ -11,10 +11,10 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <div>
+            <div class="d-flex">
                 <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="">
-                        <div class="card mx-auto mb-4" style="width: 50%;">
+                        <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
                             <div class="card-body justify-content-center">
                                 <h5 class="card-title text-center"><?php echo e($pro['product_name']); ?></h5>
                                 <p class="card-text">Kategori :</p>
@@ -46,7 +46,6 @@
         <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
             <a href="<?php echo e(route('product.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Product</a>
         <?php endif; ?>
-
     </section>
 
 <?php $__env->stopSection(); ?>
