@@ -35,16 +35,16 @@
                                 <button type="submit" class="btn btn-danger justify-center"
                                     onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
                             </form>
+                        </div>
+                    </div>
                 @endif
                 </p>
             </div>
         </div>
         @endforeach
-        </div>
         @if (Auth::check() && Auth::user()->isAdmin())
             <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2">Add Product</a>
         @endif
-        </div>
     </section>
 
 @endsection
