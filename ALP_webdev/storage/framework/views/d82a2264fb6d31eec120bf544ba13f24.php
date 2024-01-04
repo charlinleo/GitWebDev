@@ -11,35 +11,37 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <div>
+            <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $service; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ser): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="card mx-auto mb-4" style="width: 50%;">
+                    <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
                         <div class="card-body justify-content-center">
                             <h5 class="card-title text-center"><?php echo e($ser['service_name']); ?></h5>
-                            <p class="card-text text-center">Durasi : <?php echo e($ser['duration']); ?></p>
-                            <p class="card-text text-center">Harga Service : <?php echo e($ser['service_price']); ?></p>
-                            <p class="card-text text-center">
-                                <a href="/service" class="btn btn-primary text-center">Back</a>
+                            <p class="card-subtitle">Durasi :</p>
+                            <p class="card-text text-center"><?php echo e($ser['duration']); ?></p>
+                            <p class="card-subtitle">Harga Service :</p>
+                            <p class="card-text text-center"><?php echo e($ser['service_price']); ?></p>
+                            <p class="card-text">
                                 <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
-                                    <a href="<?php echo e(route('service.edit', [$ser->id])); ?>"
-                                        class="btn btn-warning text-white">Edit</a>
-                                    </p>
-                                    <p>
-                                    <form action="<?php echo e(route('service.destroy', $ser->id)); ?>" method="POST" style="display: inline;">
+                                    <form action="<?php echo e(route('service.destroy', $ser->id)); ?>" method="POST"
+                                        style="display: inline;">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>
+                                        <a href="<?php echo e(route('service.edit', [$ser->id])); ?>"
+                                            class="btn btn-warning text-white">Edit</a>
                                         <button type="submit" class="btn btn-danger justify-center"
                                             onclick="return confirm('Are you sure you want to delete this Service?')">Delete</button>
                                     </form>
                                 <?php endif; ?>
-                                    </p>
+                            </p>
                         </div>
                     </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
-        <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
-            <a href="<?php echo e(route('service.create')); ?>" class="btn btn-success d-grid gap-2">Add Service</a>
-        <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+
+            <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
+                <a href="<?php echo e(route('service.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 90%">Add Service</a>
+            <?php endif; ?>
+
     </section>
 
 <?php $__env->stopSection(); ?>
