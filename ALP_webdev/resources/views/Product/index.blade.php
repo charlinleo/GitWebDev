@@ -13,7 +13,7 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <div class="d-flex">
+            <div class="d-flex flex-wrap">
                 @foreach ($product as $pro)
                     <div class="">
                         <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
@@ -45,12 +45,11 @@
                     </div>
             </div>
         </div>
-        @endforeach
 
         @if (Auth::check() && Auth::user()->isAdmin())
-            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
-                style="width: 50%">Add Product</a>
+            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Product</a>
         @endif
+
     </section>
 
 @endsection

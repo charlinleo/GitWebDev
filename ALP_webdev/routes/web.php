@@ -17,6 +17,8 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
@@ -64,7 +66,5 @@ Route::group(['prefix' => 'reviews'], function(){
 Route::get('/', function () {
     return view('index');
 });
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

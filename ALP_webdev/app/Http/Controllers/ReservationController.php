@@ -13,7 +13,11 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        return view('reservation.index', [
+            "pagetitle" => 'Reservations',
+            "maintitle" => 'Reservations',
+            'reservation' => Reservation::all()
+        ]);
     }
 
     /**
