@@ -23,9 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(TypeSeeder::class);
-        $this->call(ResultProductSeeder::class);
-        $this->call(ResultServiceSeeder::class);
-        $this->call(ResultSeeder::class);
         $this->call(StatusSeeder::class);
         $this->call(ReservationSeeder::class);
         $this->call(ReservationProductSeeder::class);
