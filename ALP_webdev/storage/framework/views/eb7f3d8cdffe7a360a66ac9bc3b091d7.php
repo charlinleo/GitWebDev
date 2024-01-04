@@ -46,6 +46,12 @@
                         <input type="text" class="form-control" id="product_price" name="product_price" placeholder="Enter Product Price" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="image">Product Image:</label>
+                        <br>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                    </div>
+
                     <br>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>

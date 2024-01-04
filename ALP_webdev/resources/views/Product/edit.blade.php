@@ -47,6 +47,16 @@
                             value="{{ $product->product_price }}" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="image">Product Image:</label>
+                        <br>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                        @if ($product->image)
+                            <img src="{{ asset('img/' . $product->product_image) }}" alt="Product Image"
+                                width="100">
+                        @endif
+                    </div>
+
                     <!-- Add more form fields as needed -->
                     <br>
                     <button type="submit" class="btn btn-primary">Update Product</button>

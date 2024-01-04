@@ -54,9 +54,11 @@ class ProductController extends Controller
     {
         if (Auth::check() && Auth::user()->isAdmin()) {
             $category_id = (int) $request->input('category_id');
+            $imagePath = $this->uploadImage(null, $request->file('image'));
 
             // Create the product
             Product::create([
+                'product_image' => $imagePath,
                 'product_name' => $request->input('product_name'),
                 'category_id' => $category_id,
                 'product_price' => $request->input('product_price'),
@@ -107,12 +109,15 @@ class ProductController extends Controller
                 // Your validation rules here
             ]);
 
+            $newImagePath = $this->uploadImage($product->product_image, $request->file('image'));
+
             // Update the product
             $product->update([
                 'product_name' => $request->input('product_name'),
                 'category_id' => $request->input('category_id'),
                 'product_desc' => $request->input('product_desc'),
                 'product_price' => $request->input('product_price'),
+                'product_image' => $newImagePath,
             ]);
 
             return redirect()->route('product.index')->with('success', 'Product updated successfully');
@@ -135,4 +140,28 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with('error', 'Unauthorized access');
         }
     }
+
+    private function uploadImage($existingImagePath = null, $newImage = null)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->isAdmin()) {
+                // Check if a new image is provided
+                if ($newImage) {
+                    $imageName = time() . '.' . $newImage->getClientOriginalExtension();
+                    $newImage->move(public_path('img'), $imageName);
+
+                    // Return the relative path without the "images/" prefix
+                    return $imageName;
+                }
+
+                // If no new image is provided, return the existing image path or null
+                return $existingImagePath;
+            } else {
+                return redirect()->route('projects.index')->with('error', 'Unauthorized access');
+            }
+        } else {
+            return redirect()->route('projects.index')->with('error', 'Unauthorized access');
+        }
+    }
+
 }

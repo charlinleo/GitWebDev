@@ -46,6 +46,16 @@
                             value="<?php echo e($product->product_price); ?>" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="image">Product Image:</label>
+                        <br>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                        <?php if($product->image): ?>
+                            <img src="<?php echo e(asset('img/' . $product->product_image)); ?>" alt="Product Image"
+                                width="100">
+                        <?php endif; ?>
+                    </div>
+
                     <!-- Add more form fields as needed -->
                     <br>
                     <button type="submit" class="btn btn-primary">Update Product</button>
