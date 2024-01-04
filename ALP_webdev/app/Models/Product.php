@@ -28,6 +28,7 @@ class Product extends Model
             'category_id',
             'product_price',
             'product_desc',
+            'product_image',
         ]);
     }
 }
