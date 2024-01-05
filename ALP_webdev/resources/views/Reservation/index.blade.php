@@ -20,9 +20,10 @@
                             <h5 class="card-title text-center fw-bolder">{{ $res['client_name'] }}</h5>
                             <p class="card-text text-center">Reservation Date :</p>
                             <p class="card-text text-center fw-bold">{{ $res->date }}</p>
-                            <p class="card-text text-center">Status : </p>
 
+                            <p class="card-text text-center">Status : </p>
                             <div class="d-grid gap-2 col-6 mx-auto mb-2">
+
                                 @if ($res->status->id == 1)
                                     <p class="card-text text-center fw-bold btn btn-outline-info disabled">
                                         {{ $res->status->status }}</p>
@@ -41,8 +42,6 @@
                                 @endif
                             </div>
 
-                            <p class="card-text text-center fw-bold">{{ $res->status->status }}</p>
-
                             <p class="card-text text-center">Service : </p>
                             @foreach ($res->services as $service)
                                 <p class="card-text text-center fw-bold">{{ $service->service_name }}</p>
@@ -56,17 +55,19 @@
                                     class="rounded mx-auto d-block">
                             @endforeach
                             <p class="card-text ">
-                                @if (Auth::check() && Auth::user()->isAdmin())
-                                    <form action="{{ route('reservation.destroy', $res->id) }}" method="POST"
-                                        style="display: inline;">
-                                        <a href="{{ route('reservation.edit', [$res->id]) }}"
-                                            class="btn btn-warning text-white">Edit</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
-                                    </form>
+                            <form action="{{ route('reservation.destroy', $res->id) }}" method="POST"
+                                style="display: inline;">
+                                @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isMember()))
+                                    <a href="{{ route('reservation.edit', [$res->id]) }}"
+                                        class="btn btn-warning text-white">Edit</a>
                                 @endif
+                                @csrf
+                                @method('DELETE')
+                                @if (Auth::check() && Auth::user()->isAdmin())
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                @endif
+                            </form>
                             </p>
                         </div>
                     </div>
@@ -75,7 +76,7 @@
         </div>
 
         @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isAdmin()))
-            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+            <a href="{{ route('reservation.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
                 style="width: 50%">Add Product</a>
         @endif
 

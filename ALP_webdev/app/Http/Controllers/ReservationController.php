@@ -45,7 +45,24 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isAdmin()) {
+            $service_id = (int) $request->input('service_id');
+            $product_id = (int) $request->input('product_id');
+
+            // Create the reservation
+            Reservation::create([
+                'client_name' => $request->input('product_name'),
+                'service_id' => $service_id,
+                'product_id' => $product_id,
+                'product_price' => $request->input('product_price'),
+                'product_desc' => $request->input('product_desc'),
+            ]);
+
+            return redirect()->route('product.index')->with('success', 'Product created successfully');
+        }
+        else {
+            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
