@@ -13,7 +13,7 @@
             </div>
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $review; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rev): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="card mx-auto mb-4" style="width: 50%;">
+                    <div class="card mx-auto p-2 mb-4" style="width: 18rem;">
                         <div class="card-body justify-content-center">
                             <h5 class="card-title text-center"><?php echo e($rev->user->name); ?></h5>
                             <p class="card-text text-center">Rating : <?php echo e($rev['rating']); ?></p>
@@ -33,9 +33,11 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+
             <?php if((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isMember())): ?>
                 <a href="<?php echo e(route('review.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto">Add Review</a>
             <?php endif; ?>
+
     </section>
 
 <?php $__env->stopSection(); ?>

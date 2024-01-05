@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,17 @@ Route::group(['prefix' => 'services'], function(){
     Route::get('{service}/edit', [ServiceController::class, 'edit'])->name('service.edit');
     Route::put('{service}', [ServiceController::class, 'update'])->name('service.update');
     Route::delete('{service}', [ServiceController::class, 'destroy'])->name('service.destroy');
+});
+
+Route::resource('reservation', ReservationController::class);
+
+Route::group(['prefix' => 'services'], function(){
+    Route::get('/reservation', [ReservationController::class, 'index']);
+    Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
+    Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::get('{reservation}/edit', [ReservationController::class, 'edit'])->name('reservation.edit');
+    Route::put('{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
+    Route::delete('{reservation}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
 });
 
 Route::resource('review', ReviewController::class);

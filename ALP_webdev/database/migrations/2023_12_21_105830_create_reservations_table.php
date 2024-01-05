@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('client_name');
             $table->date('date');
             $table->integer('total_purchase');
-            $table->foreignIdFor(\App\Models\Status::class);
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
         });
     }
 

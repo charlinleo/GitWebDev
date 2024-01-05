@@ -28,15 +28,15 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $user = User::all(); // Retrieve user for the create form
-        return view(
-            'review.create',
-            [
-                "pagetitle" => 'Add Review',
-                "maintitle" => 'Add Review ',
-            ],
-            compact('user')
-        );
+        $user = User::all(); // Retrieve all users for the create form
+        $currentUserId = Auth::id(); // Get the currently logged-in user's ID
+
+        return view('review.create', [
+            "pagetitle" => 'Add Review',
+            "maintitle" => 'Add Review ',
+            'user' => $user,
+            'currentUserId' => $currentUserId, // Pass the ID to the view
+        ]);
     }
 
     /**
@@ -94,6 +94,13 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        if (Auth::check() && Auth::user()->isAdmin()) {
+
+            $review->delete();
+
+            return redirect()->route('review.index')->with('success', 'Product deleted successfully');
+        } else {
+            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+        }
     }
 }

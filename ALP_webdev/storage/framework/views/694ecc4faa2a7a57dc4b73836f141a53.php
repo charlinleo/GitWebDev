@@ -101,15 +101,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-end"><?php echo e(__('Choose Role')); ?></label>
-                            <div class="col-md-6">
-                                <select name="role_id" id="role_id" class="form-select custom-select" required>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Member</option>
-                                </select>
-                            </div>
-                        </div>
+                        
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

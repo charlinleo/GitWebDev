@@ -39,7 +39,7 @@
             </div>
 
             <?php if(Auth::check() && Auth::user()->isAdmin()): ?>
-                <a href="<?php echo e(route('service.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 90%">Add Service</a>
+                <a href="<?php echo e(route('service.create')); ?>" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Service</a>
             <?php endif; ?>
 
     </section>

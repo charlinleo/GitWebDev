@@ -23,9 +23,9 @@
                     <div class="form-group">
                         <label for="user_id">User :</label>
                         <select class="form-control" id="user_id" name="user_id" required>
-                            <option value="user_name" selected>Select User</option>
+                            <option value="" disabled>Select User</option>
                             @foreach ($user as $usr)
-                                <option value="{{ $usr->id }}">
+                                <option value="{{ $usr->id }}" {{ $usr->id == $currentUserId ? 'selected' : '' }}>
                                     {{ $usr->name }}
                                 </option>
                             @endforeach

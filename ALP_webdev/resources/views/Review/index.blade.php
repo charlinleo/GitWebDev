@@ -15,7 +15,7 @@
             </div>
             <div class="d-flex flex-wrap">
                 @foreach ($review as $rev)
-                    <div class="card mx-auto mb-4" style="width: 50%;">
+                    <div class="card mx-auto p-2 mb-4" style="width: 18rem;">
                         <div class="card-body justify-content-center">
                             <h5 class="card-title text-center">{{ $rev->user->name }}</h5>
                             <p class="card-text text-center">Rating : {{ $rev['rating'] }}</p>
@@ -39,7 +39,7 @@
             @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isMember()))
                 <a href="{{ route('review.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto">Add Review</a>
             @endif
-            
+
     </section>
 
 @endsection

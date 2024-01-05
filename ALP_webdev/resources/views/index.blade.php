@@ -25,7 +25,6 @@
 
     <section>
         <div class="container">
-
             <h2 class="page-section-heading text-center text-uppercase text-secondary mt-1 pt-5">Service</h2>
 
             <div class="divider-custom">
@@ -38,7 +37,26 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="mx-auto">
-                            <img class="img-fluid hover-effect" src="{{ asset('img/logo.jpeg') }}" alt="..." />
+                            <a href="{{ route('service.index') }}"><img class="img-fluid hover-effect" src="{{ asset('img/logo.jpeg') }}" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-1 pt-5">Product</h2>
+
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="mx-auto">
+                            <a href="{{ route('product.index') }}"><img class="img-fluid hover-effect" src="{{ asset('img/logo.jpeg') }}" alt="" /></a>
                         </div>
                     </div>
                 </div>
