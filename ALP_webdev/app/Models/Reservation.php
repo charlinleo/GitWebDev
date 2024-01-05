@@ -15,6 +15,7 @@ class Reservation extends Model
         'client_name',
         'date',
         'total_purchase',
+        'status_id',
     ];
 
     public function status(): BelongsTo{

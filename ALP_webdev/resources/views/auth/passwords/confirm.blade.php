@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5 position-absolute top-50 start-50 translate-middle text-black">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>
 

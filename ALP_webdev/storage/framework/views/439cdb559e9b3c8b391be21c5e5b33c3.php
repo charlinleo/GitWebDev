@@ -84,13 +84,21 @@ unset($__errorArgs, $__bag); ?>
                                     <?php echo e(__('Login')); ?>
 
                                 </button>
-
+                            </div>
+                        </div>
+                        <div class="row mb-0 text-black">
+                            <div class="col-md-8 offset-md-3 text-end">
                                 <?php if(Route::has('password.request')): ?>
                                     <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
                                         <?php echo e(__('Forgot Your Password?')); ?>
 
                                     </a>
                                 <?php endif; ?>
+
+                                <a class="btn btn-link" href="<?php echo e(route('register')); ?>">
+                                    <?php echo e(__('Register')); ?>
+
+                                </a>
                             </div>
                         </div>
                     </form>

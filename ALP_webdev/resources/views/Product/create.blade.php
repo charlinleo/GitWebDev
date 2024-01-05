@@ -57,7 +57,7 @@
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>
             @else
-                <p>You do not have permission to edit this product.</p>
+                <p>You do not have permission to create this product.</p>
             @endif
         </div>
 </section>

@@ -52,18 +52,18 @@
                                 <p class="card-text text-center fw-bold">{{ $product->product_name }}</p>
                                 <img src="{{ asset('img/' . $product->product_image) }}"
                                     alt="{{ $product->product_name }} Image" style="width: 200px; height: 200px;"
-                                    class="rounded mx-auto d-block">
+                                    class="rounded mx-auto d-block mb-2">
                             @endforeach
+                            <p class="card-text text-center">Total Purchase :</p>
+                            <p class="card-text text-center fw-bold">{{ $res->total_purchase }}</p>
                             <p class="card-text ">
                             <form action="{{ route('reservation.destroy', $res->id) }}" method="POST"
                                 style="display: inline;">
-                                @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isMember()))
-                                    <a href="{{ route('reservation.edit', [$res->id]) }}"
-                                        class="btn btn-warning text-white">Edit</a>
-                                @endif
                                 @csrf
                                 @method('DELETE')
                                 @if (Auth::check() && Auth::user()->isAdmin())
+                                    <a href="{{ route('reservation.edit', [$res->id]) }}"
+                                        class="btn btn-warning text-white">Edit</a>
                                     <button type="submit" class="btn btn-danger"
                                         onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
                                 @endif
@@ -75,10 +75,8 @@
             </div>
         </div>
 
-        @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isAdmin()))
-            <a href="{{ route('reservation.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
-                style="width: 50%">Add Product</a>
-        @endif
+        <a href="{{ route('reservation.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+            style="width: 50%">Add Reservation</a>
 
     </section>
 

@@ -57,13 +57,13 @@ Route::group(['prefix' => 'services'], function(){
 
 Route::resource('reservation', ReservationController::class);
 
-Route::group(['prefix' => 'services'], function(){
+Route::group(['prefix' => 'reservations'], function(){
     Route::get('/reservation', [ReservationController::class, 'index']);
     Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
-    Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
-    Route::get('{reservation}/edit', [ReservationController::class, 'edit'])->name('reservation.edit');
-    Route::put('{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
-    Route::delete('{reservation}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+    // Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
+    // Route::get('{reservation}/edit', [ReservationController::class, 'edit'])->name('reservation.edit');
+    // Route::put('{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
+    // Route::delete('{reservation}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
 });
 
 Route::resource('review', ReviewController::class);
