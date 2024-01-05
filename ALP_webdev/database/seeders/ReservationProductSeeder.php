@@ -15,23 +15,23 @@ class ReservationProductSeeder extends Seeder
     public function run(): void
     {
         DB::table('reservation_products')->insert([
-            'reservation_id' => '1',
-            'product_id' => '8'
+            'reservation_id' => 1,
+            'product_id' => 8
         ]);
 
         DB::table('reservation_products')->insert([
-            'reservation_id' => '2',
-            'product_id' => '10'
+            'reservation_id' => 2,
+            'product_id' => 10
         ]);
 
         DB::table('reservation_products')->insert([
-            'reservation_id' => '3',
-            'product_id' => '5'
+            'reservation_id' => 3,
+            'product_id' => 5
         ]);
 
         DB::table('reservation_products')->insert([
-            'reservation_id' => '4',
-            'product_id' => '13'
-        ]); 
+            'reservation_id' => 4,
+            'product_id' => 13
+        ]);
     }
 }
