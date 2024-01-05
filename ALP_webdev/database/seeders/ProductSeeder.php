@@ -28,8 +28,6 @@ class ProductSeeder extends Seeder
                     membuang udara terkompresi (boost) ke atmosfer pada saat pedal gas diangkat/ditutup.",
                 ]);
 
-
-
             } else if ($index == 1) {
                 DB::table('products')->insert([
                     'product_image' => 'ledt15.jpg',

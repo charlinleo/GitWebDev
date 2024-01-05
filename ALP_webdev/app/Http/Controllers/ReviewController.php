@@ -28,14 +28,14 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $user = User::all(); // Retrieve all users for the create form
-        $currentUserId = Auth::id(); // Get the currently logged-in user's ID
+        $user = User::all();
+        $currentUserId = Auth::id();
 
         return view('review.create', [
             "pagetitle" => 'Add Review',
             "maintitle" => 'Add Review ',
             'user' => $user,
-            'currentUserId' => $currentUserId, // Pass the ID to the view
+            'currentUserId' => $currentUserId,
         ]);
     }
 
@@ -52,15 +52,6 @@ class ReviewController extends Controller
         ]);
 
         Review::create($validated);
-
-        // $user_id = (int) $request->input('user_id');
-
-        // // Create the review
-        // Review::create([
-        //     'user_id' => $user_id,
-        //     'rating' => $request->input('rating'),
-        //     'comment' => $request->input('comment'),
-        // ]);
 
         return redirect()->route('review.index')->with('success', 'Review created successfully');
     }

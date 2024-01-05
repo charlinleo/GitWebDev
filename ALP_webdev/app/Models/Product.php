@@ -31,4 +31,9 @@ class Product extends Model
             'product_image',
         ]);
     }
+
+    public function reservations()
+    {
+        return $this->belongsToMany(Reservation::class, 'reservation_products');
+    }
 }

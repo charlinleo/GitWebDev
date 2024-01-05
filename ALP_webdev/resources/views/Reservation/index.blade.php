@@ -4,51 +4,81 @@
 @section('maintitle')
 @section('layout_content')
 
-<section class="page-section portfolio" id="portfolio">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 mt-5 pt-5">Add Review</h2>
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 mt-5 pt-5">Product</h2>
 
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <div>
-            @if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember())
-                <form action="{{ route('review.store') }}" method="POST"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('POST')
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="d-flex flex-wrap">
+                @foreach ($reservation as $res)
+                    <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
+                        <div class="card-body justify-content-center">
+                            <h5 class="card-title text-center fw-bolder">{{ $res['client_name'] }}</h5>
+                            <p class="card-text text-center">Reservation Date :</p>
+                            <p class="card-text text-center fw-bold">{{ $res->date }}</p>
+                            <p class="card-text text-center">Status : </p>
 
-                    <div class="form-group">
-                        <label for="user_id">User :</label>
-                        <select class="form-control" id="user_id" name="user_id" required>
-                            <option value="user_name" selected>Select User</option>
-                            @foreach ($user as $usr)
-                                <option value="{{ $usr->id }}">
-                                    {{ $usr->name }}
-                                </option>
+                            <div class="d-grid gap-2 col-6 mx-auto mb-2">
+                                @if ($res->status->id == 1)
+                                    <p class="card-text text-center fw-bold btn btn-outline-info disabled">
+                                        {{ $res->status->status }}</p>
+                                @elseif ($res->status->id == 2)
+                                    <p class="card-text text-center fw-bold btn btn-outline-primary disabled">
+                                        {{ $res->status->status }}</p>
+                                @elseif ($res->status->id == 3)
+                                    <p class="card-text text-center fw-bold btn btn-outline-danger disabled">
+                                        {{ $res->status->status }}</p>
+                                @elseif ($res->status->id == 4)
+                                    <p class="card-text text-center fw-bold btn btn-outline-secondary disabled">
+                                        {{ $res->status->status }}</p>
+                                @elseif ($res->status->id == 5)
+                                    <p class="card-text text-center fw-bold btn btn-outline-success disabled">
+                                        {{ $res->status->status }}</p>
+                                @endif
+                            </div>
+
+                            <p class="card-text text-center fw-bold">{{ $res->status->status }}</p>
+
+                            <p class="card-text text-center">Service : </p>
+                            @foreach ($res->services as $service)
+                                <p class="card-text text-center fw-bold">{{ $service->service_name }}</p>
                             @endforeach
-                        </select>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="rating">Rating :</label>
-                        <input type="text" class="form-control" id="rating" name="rating" placeholder="Enter Rating" required>
+                            <p class="card-text text-center">Product :</p>
+                            @foreach ($res->products as $product)
+                                <p class="card-text text-center fw-bold">{{ $product->product_name }}</p>
+                                <img src="{{ asset('img/' . $product->product_image) }}"
+                                    alt="{{ $product->product_name }} Image" style="width: 200px; height: 200px;"
+                                    class="rounded mx-auto d-block">
+                            @endforeach
+                            <p class="card-text ">
+                                @if (Auth::check() && Auth::user()->isAdmin())
+                                    <form action="{{ route('reservation.destroy', $res->id) }}" method="POST"
+                                        style="display: inline;">
+                                        <a href="{{ route('reservation.edit', [$res->id]) }}"
+                                            class="btn btn-warning text-white">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                    </form>
+                                @endif
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="comment">Comment :</label>
-                        <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Enter Comment" required></textarea>
-                    </div>
-
-                    <br>
-                    <button type="submit" class="btn btn-primary">Add Review</button>
-                </form>
-            @else
-                <p>You do not have permission to edit this review.</p>
-            @endif
+                @endforeach
+            </div>
         </div>
-</section>
+
+        @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isAdmin()))
+            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+                style="width: 50%">Add Product</a>
+        @endif
+
+    </section>
 
 @endsection

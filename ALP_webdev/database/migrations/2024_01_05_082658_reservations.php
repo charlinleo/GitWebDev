@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->unsignedBigInteger('rp_id')->index()->after('status_id');
-            $table->foreign('rp_id')->references('id')->on('reservation_products')->onDelete('cascade');
-            $table->unsignedBigInteger('rs_id')->index()->after('rp_id');
-            $table->foreign('rs_id')->references('id')->on('reservation_services')->onDelete('cascade');
+            $table->unsignedBigInteger('product_id')->index()->after('status_id');
+            $table->foreign('product_id')->references('id')->on('reservation_products')->onDelete('cascade');
+            $table->unsignedBigInteger('service_id')->index()->after('product_id');
+            $table->foreign('service_id')->references('id')->on('reservation_services')->onDelete('cascade');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->dropColumn('rp_id');
-            $table->dropColumn('rs_id');
+            $table->dropColumn('product_id');
+            $table->dropColumn('service_id');
         });
     }
 };

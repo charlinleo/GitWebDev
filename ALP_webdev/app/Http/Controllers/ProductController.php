@@ -28,21 +28,18 @@ class ProductController extends Controller
      */
     public function create()
     {
-        if (Auth::check()) {
-            if (Auth::user()->isAdmin()) {
-                $categories = Category::all(); // Retrieve categories for the create form
-                return view(
-                    'product.create',
-                    [
-                        "pagetitle" => 'Add Product',
-                        "maintitle" => 'Add Product Detail',
-                    ],
-                    compact('categories')
-                );
-            } else {
-                return redirect()->route('product.index')->with('error', 'Unauthorized access');
-            }
-        } else {
+        if (Auth::check() && Auth::user()->isAdmin()) {
+            $categories = Category::all(); // Retrieve categories for the create form
+            return view(
+                'product.create',
+                [
+                    "pagetitle" => 'Add Product',
+                    "maintitle" => 'Add Product Detail',
+                ],
+                compact('categories')
+            );
+        }
+        else {
             return redirect()->route('product.index')->with('error', 'Unauthorized access');
         }
     }
@@ -66,7 +63,8 @@ class ProductController extends Controller
             ]);
 
             return redirect()->route('product.index')->with('success', 'Product created successfully');
-        } else {
+        }
+        else {
             return redirect()->route('product.index')->with('error', 'Unauthorized access');
         }
     }
@@ -91,7 +89,8 @@ class ProductController extends Controller
             return view('product.edit', [
                 "pagetitle" => 'Edit Product',
                 "maintitle" => 'Edit Product Detail',
-            ], compact('product', 'categories'));
+            ],
+            compact('product', 'categories'));
         } else {
             return redirect()->route('product.index')->with('error', 'Unauthorized access');
         }

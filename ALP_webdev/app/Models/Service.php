@@ -14,5 +14,9 @@ class Service extends Model
         'duration',
         'service_price'
     ];
-    
+
+    public function reservations()
+    {
+        return $this->belongsToMany(Reservation::class, 'reservation_services');
+    }
 }
