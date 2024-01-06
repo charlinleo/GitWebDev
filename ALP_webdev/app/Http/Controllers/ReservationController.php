@@ -132,11 +132,13 @@ class ReservationController extends Controller
                 'client_name' => $request->input('client_name'),
                 'date' => $request->input('date'),
                 'total_purchase' => $request->input('total_purchase'),
-                'status_id' => $request->input('status_id')
+                'status_id' => $request->input('status_id'),
+                // 'service_id' => $request->input('service_id'),
+                // 'product_id' => $request->input('product_id'),
             ]);
 
-            $reservation->services()->attach($validated['service_id']);
-            $reservation->products()->attach($validated['product_id']);
+            $reservation->services()->sync($validated['service_id']);
+            $reservation->products()->sync($validated['product_id']);
 
             return redirect()->route('reservation.index')->with('success', 'Reservation updated successfully');
         } else {
