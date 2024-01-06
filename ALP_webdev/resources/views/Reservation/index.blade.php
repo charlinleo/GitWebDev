@@ -6,7 +6,7 @@
 
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 mt-5 pt-5">Product</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 mt-5 pt-5">Reservation</h2>
 
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
