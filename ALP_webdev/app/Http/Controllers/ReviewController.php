@@ -28,15 +28,25 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $user = User::all();
-        $currentUserId = Auth::id();
+        if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember()) {
+            $user = User::all();
+            $currentUserId = Auth::id();
 
-        return view('review.create', [
-            "pagetitle" => 'Add Review',
-            "maintitle" => 'Add Review ',
-            'user' => $user,
-            'currentUserId' => $currentUserId,
-        ]);
+            return view(
+                'review.create',
+                [
+                    "pagetitle" => 'Add Review',
+                    "maintitle" => 'Add Review ',
+                    'user' => $user,
+                    'currentUserId' => $currentUserId,
+                ],
+                compact('user')
+            );
+
+
+        } else {
+            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**
@@ -44,16 +54,22 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember()) {
 
-        $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'rating' => 'required|string',
-            'comment' => 'required|string',
-        ]);
+            $currentUserId = Auth::id();
 
-        Review::create($validated);
+            Review::create([
+                'user_id' => $currentUserId,
+                'rating' => $request->input('rating'),
+                'comment' => $request->input('comment'),
+            ]);
+            ;
 
-        return redirect()->route('review.index')->with('success', 'Review created successfully');
+            return redirect()->route('review.index')->with('success', 'Review created successfully');
+
+        } else {
+            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+        }
     }
 
     /**

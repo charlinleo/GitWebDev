@@ -21,12 +21,11 @@
                     <div class="form-group">
                         <label for="user_id">User :</label>
                         <select class="form-control" id="user_id" name="user_id" required>
-                            <option value="" disabled>Select User</option>
                             <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $usr): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($usr->id); ?>" <?php echo e($usr->id == $currentUserId ? 'selected' : ''); ?>>
-                                    <?php echo e($usr->name); ?>
+                            <option value="<?php echo e($usr->id); ?>" <?php echo e($usr->id == $currentUserId ? 'selected' : ''); ?> disabled>
+                                <?php echo e($usr->name); ?>
 
-                                </option>
+                            </option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>

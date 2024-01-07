@@ -41,7 +41,7 @@ class ReservationController extends Controller
                 ],
             );
         } else {
-            return redirect()->route('reservation.create');
+            return redirect()->route('reservation.index');
         }
     }
 
