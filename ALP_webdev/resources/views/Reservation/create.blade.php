@@ -26,6 +26,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="contact">Contact :</label>
+                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter Your Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label" for="date">Date</label>
                         <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>
                     </div>
@@ -53,7 +58,7 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <br>
                     <button type="submit" class="btn btn-primary">Add Reservation</button>
                 </form>

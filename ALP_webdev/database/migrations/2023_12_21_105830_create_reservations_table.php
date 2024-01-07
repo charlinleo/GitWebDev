@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('client_name');
+            $table->string('contact');
             $table->date('date');
-            $table->integer('total_purchase');
+            $table->string('total_purchase');
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
         });

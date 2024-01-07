@@ -18,6 +18,8 @@
                     <div class="card mx-auto p-2 mb-4" style="width: 25rem;">
                         <div class="card-body justify-content-center">
                             <h5 class="card-title text-center fw-bolder">{{ $res['client_name'] }}</h5>
+                            <p class="card-text text-center">Contact :</p>
+                            <p class="card-text text-center fw-bold">{{ $res->contact }}</p>
                             <p class="card-text text-center">Reservation Date :</p>
                             <p class="card-text text-center fw-bold">{{ $res->date }}</p>
 

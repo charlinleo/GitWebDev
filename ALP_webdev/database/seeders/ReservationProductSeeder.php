@@ -33,5 +33,10 @@ class ReservationProductSeeder extends Seeder
             'reservation_id' => 4,
             'product_id' => 13
         ]);
+        
+        DB::table('reservation_products')->insert([
+            'reservation_id' => 5,
+            'product_id' => 2
+        ]);
     }
 }

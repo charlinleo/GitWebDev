@@ -62,6 +62,7 @@ class ReservationController extends Controller
             $reservation = Reservation::create([
                 'client_name' => $request->input('client_name'),
                 'date' => $request->input('date'),
+                'contact' => $request->input('contact'),
                 'total_purchase' => "Hubungi Autosight untuk info lebih lanjut",
                 'status_id' => 4
             ]);
@@ -133,6 +134,7 @@ class ReservationController extends Controller
                 'date' => $request->input('date'),
                 'total_purchase' => $request->input('total_purchase'),
                 'status_id' => $request->input('status_id'),
+                'contact' => $request->input('contact'),
                 // 'service_id' => $request->input('service_id'),
                 // 'product_id' => $request->input('product_id'),
             ]);

@@ -15,6 +15,7 @@ class ReservationSeeder extends Seeder
     {
         DB::table('reservations')->insert([
             'client_name' => "Hiroshi",
+            'contact' => "08123456789",
             'date' => now(),
             'total_purchase' => "150000",
             'status_id' => 1
@@ -22,6 +23,7 @@ class ReservationSeeder extends Seeder
 
         DB::table('reservations')->insert([
             'client_name' => "Nicholas",
+            'contact' => "08526458375",
             'date' => now(),
             'total_purchase' => "300000",
             'status_id' => 2,
@@ -29,6 +31,7 @@ class ReservationSeeder extends Seeder
 
         DB::table('reservations')->insert([
             'client_name' => "Bepe",
+            'contact' => "087629363439",
             'date' => now(),
             'total_purchase' => "300000",
             'status_id' => 3,
@@ -36,6 +39,7 @@ class ReservationSeeder extends Seeder
 
         DB::table('reservations')->insert([
             'client_name' => "Kimi",
+            'contact' => "082636284063",
             'date' => now(),
             'total_purchase' => "25000",
             'status_id' => 4,
@@ -43,6 +47,7 @@ class ReservationSeeder extends Seeder
 
         DB::table('reservations')->insert([
             'client_name' => "Maverick",
+            'contact' => "085323549537",
             'date' => now(),
             'total_purchase' => "750000",
             'status_id' => 5,

@@ -27,6 +27,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="contact">Contact :</label>
+                        <input type="text" class="form-control" id="contact" name="contact"
+                            value="{{ $reservation->contact }}" required>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label" for="date">Date</label>
                         <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"
                             value="{{ $reservation->date }}" />

@@ -33,5 +33,10 @@ class ReservationServiceSeeder extends Seeder
             'reservation_id' => 4,
             'service_id' => 5
         ]);
+
+        DB::table('reservation_services')->insert([
+            'reservation_id' => 5,
+            'service_id' => 6
+        ]);
     }
 }
