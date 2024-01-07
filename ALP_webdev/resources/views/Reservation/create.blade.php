@@ -15,7 +15,7 @@
         </div>
         <div>
             @if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember())
-                <form action="{{ route('reservation.store') }}" method="POST"
+                <form action="{{ route('Reservation.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('POST')

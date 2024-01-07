@@ -27,9 +27,9 @@
                             <img src="{{ asset('img/' . $pro['product_image']) }}" alt="{{ $pro['product_name'] }} Image" style="width: 200px; height: 200px;" class="rounded mx-auto d-block">
                             <p class="card-text ">
                                 @if (Auth::check() && Auth::user()->isAdmin())
-                                    <form action="{{ route('product.destroy', $pro->id) }}" method="POST"
+                                    <form action="{{ route('Product.destroy', $pro->id) }}" method="POST"
                                         style="display: inline;">
-                                        <a href="{{ route('product.edit', [$pro->id]) }}"
+                                        <a href="{{ route('Product.edit', [$pro->id]) }}"
                                             class="btn btn-warning text-white">Edit</a>
                                         @csrf
                                         @method('DELETE')
@@ -45,7 +45,7 @@
         </div>
 
         @if (Auth::check() && Auth::user()->isAdmin())
-            <a href="{{ route('product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+            <a href="{{ route('Product.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
                 style="width: 50%">Add Product</a>
         @endif
 

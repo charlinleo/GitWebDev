@@ -59,12 +59,12 @@
                             <p class="card-text text-center">Total Purchase :</p>
                             <p class="card-text text-center fw-bold">{{ $res->total_purchase }}</p>
                             <p class="card-text ">
-                            <form action="{{ route('reservation.destroy', $res->id) }}" method="POST"
+                            <form action="{{ route('Reservation.destroy', $res->id) }}" method="POST"
                                 style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 @if (Auth::check() && Auth::user()->isAdmin())
-                                    <a href="{{ route('reservation.edit', [$res->id]) }}"
+                                    <a href="{{ route('Reservation.edit', [$res->id]) }}"
                                         class="btn btn-warning text-white">Edit</a>
                                     <button type="submit" class="btn btn-danger"
                                         onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <a href="{{ route('reservation.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
+        <a href="{{ route('Reservation.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto"
             style="width: 50%">Add Reservation</a>
 
     </section>

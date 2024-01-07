@@ -15,7 +15,7 @@
         </div>
         <div>
             @if (Auth::check() && Auth::user()->isAdmin())
-                <form action="{{ route('product.store') }}" method="POST"
+                <form action="{{ route('Product.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('POST')

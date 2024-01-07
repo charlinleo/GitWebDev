@@ -15,7 +15,7 @@
         </div>
         <div>
             @if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember())
-                <form action="{{ route('review.store') }}" method="POST"
+                <form action="{{ route('Review.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('POST')
@@ -45,7 +45,7 @@
                     <button type="submit" class="btn btn-primary">Add Review</button>
                 </form>
             @else
-                <p>You do not have permission to edit this review.</p>
+                <p>You do not have permission to edit this Review.</p>
             @endif
         </div>
 </section>

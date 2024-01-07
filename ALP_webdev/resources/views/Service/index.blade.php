@@ -24,11 +24,11 @@
                             <p class="card-text text-center">{{ $ser['service_price'] }}</p>
                             <p class="card-text">
                                 @if (Auth::check() && Auth::user()->isAdmin())
-                                    <form action="{{ route('service.destroy', $ser->id) }}" method="POST"
+                                    <form action="{{ route('Service.destroy', $ser->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('service.edit', [$ser->id]) }}"
+                                        <a href="{{ route('Service.edit', [$ser->id]) }}"
                                             class="btn btn-warning text-white">Edit</a>
                                         <button type="submit" class="btn btn-danger justify-center"
                                             onclick="return confirm('Are you sure you want to delete this Service?')">Delete</button>
@@ -41,7 +41,7 @@
             </div>
 
             @if (Auth::check() && Auth::user()->isAdmin())
-                <a href="{{ route('service.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Service</a>
+                <a href="{{ route('Service.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto" style="width: 50%">Add Service</a>
             @endif
 
     </section>

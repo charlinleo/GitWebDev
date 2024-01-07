@@ -18,7 +18,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view('reservation.index', [
+        return view('Reservation.index', [
             "pagetitle" => 'Reservations',
             "maintitle" => 'Reservations',
             'reservation' => Reservation::all()
@@ -32,7 +32,7 @@ class ReservationController extends Controller
     {
         if (Auth::check() && Auth::user()->isAdmin() || Auth::check() && Auth::user()->isMember()) {
             return view(
-                'reservation.create',
+                'Reservation.create',
                 [
                     "pagetitle" => 'Add Reservation',
                     "maintitle" => 'Add Reservation Detail',
@@ -41,7 +41,7 @@ class ReservationController extends Controller
                 ],
             );
         } else {
-            return redirect()->route('reservation.index');
+            return redirect()->route('Reservation.index');
         }
     }
 
@@ -70,9 +70,9 @@ class ReservationController extends Controller
             $reservation->services()->attach($validated['service_id']);
             $reservation->products()->attach($validated['product_id']);
 
-            return redirect()->route('reservation.index')->with('success', 'Reservation created successfully');
+            return redirect()->route('Reservation.index')->with('success', 'Reservation created successfully');
         } else {
-            return redirect()->route('reservation.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Reservation.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -96,7 +96,7 @@ class ReservationController extends Controller
             $products = Product::all();
             $statuses = Status::all();
             return view(
-                'reservation.edit',
+                'Reservation.edit',
                 [
                     "pagetitle" => 'Edit Reservation',
                     "maintitle" => 'Edit Reservation Detail',
@@ -108,7 +108,7 @@ class ReservationController extends Controller
                 compact('reservation', 'services', 'products', 'statuses')
             );
         } else {
-            return redirect()->route('reservation.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Reservation.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -142,9 +142,9 @@ class ReservationController extends Controller
             $reservation->services()->sync($validated['service_id']);
             $reservation->products()->sync($validated['product_id']);
 
-            return redirect()->route('reservation.index')->with('success', 'Reservation updated successfully');
+            return redirect()->route('Reservation.index')->with('success', 'Reservation updated successfully');
         } else {
-            return redirect()->route('reservation.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Reservation.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -157,9 +157,9 @@ class ReservationController extends Controller
 
             $reservation->delete();
 
-            return redirect()->route('reservation.index')->with('success', 'Reservation deleted successfully');
+            return redirect()->route('Reservation.index')->with('success', 'Reservation deleted successfully');
         } else {
-            return redirect()->route('reservation.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Reservation.index')->with('error', 'Unauthorized access');
         }
     }
 }

@@ -30,17 +30,17 @@ class ServiceController extends Controller
         if (Auth::check()) {
             if (Auth::user()->isAdmin()) {
                 return view(
-                    'service.create',
+                    'Service.create',
                     [
                         "pagetitle" => 'Add Service',
                         "maintitle" => 'Add Servie Detail',
                     ],
                 );
             } else {
-                return redirect()->route('service.index')->with('error', 'Unauthorized access');
+                return redirect()->route('Service.index')->with('error', 'Unauthorized access');
             }
         } else {
-            return redirect()->route('service.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Service.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -58,9 +58,9 @@ class ServiceController extends Controller
                 'service_price' => $request->input('service_price'),
             ]);
 
-            return redirect()->route('service.index')->with('success', 'Service created successfully');
+            return redirect()->route('Service.index')->with('success', 'Service created successfully');
         } else {
-            return redirect()->route('service.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Service.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -80,12 +80,12 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
 
         if (Auth::check() && Auth::user()->isAdmin()) {
-            return view('service.edit', [
+            return view('Service.edit', [
                 "pagetitle" => 'Edit Service',
                 "maintitle" => 'Edit Service Detail',
             ], compact('service'));
         } else {
-            return redirect()->route('service.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Service.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -108,9 +108,9 @@ class ServiceController extends Controller
                 'service_price' => $request->input('service_price'),
             ]);
 
-            return redirect()->route('service.index')->with('success', 'Service updated successfully');
+            return redirect()->route('Service.index')->with('success', 'Service updated successfully');
         } else {
-            return redirect()->route('service.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Service.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -123,9 +123,9 @@ class ServiceController extends Controller
 
             $service->delete();
 
-            return redirect()->route('service.index')->with('success', 'Service deleted successfully');
+            return redirect()->route('Service.index')->with('success', 'Service deleted successfully');
         } else {
-            return redirect()->route('service.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Service.index')->with('error', 'Unauthorized access');
         }
     }
 }

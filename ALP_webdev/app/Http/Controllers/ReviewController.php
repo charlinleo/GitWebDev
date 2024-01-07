@@ -16,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('review.index', [
+        return view('Review.index', [
             "pagetitle" => 'Reviews',
             "maintitle" => 'Reviews',
             'review' => Review::all()
@@ -33,7 +33,7 @@ class ReviewController extends Controller
             $currentUserId = Auth::id();
 
             return view(
-                'review.create',
+                'Review.create',
                 [
                     "pagetitle" => 'Add Review',
                     "maintitle" => 'Add Review ',
@@ -45,7 +45,7 @@ class ReviewController extends Controller
 
 
         } else {
-            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Review.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -65,10 +65,10 @@ class ReviewController extends Controller
             ]);
             ;
 
-            return redirect()->route('review.index')->with('success', 'Review created successfully');
+            return redirect()->route('Review.index')->with('success', 'Review created successfully');
 
         } else {
-            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Review.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -105,9 +105,9 @@ class ReviewController extends Controller
 
             $review->delete();
 
-            return redirect()->route('review.index')->with('success', 'Product deleted successfully');
+            return redirect()->route('Review.index')->with('success', 'Product deleted successfully');
         } else {
-            return redirect()->route('review.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Review.index')->with('error', 'Unauthorized access');
         }
     }
 }

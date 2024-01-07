@@ -22,7 +22,7 @@
                             <p class="card-text text-center">Comment : {{ $rev['comment'] }}</p>
                             <p>
                                 @if (Auth::check() && Auth::user()->isAdmin())
-                                    <form action="{{ route('review.destroy', $rev->id) }}" method="POST"
+                                    <form action="{{ route('Review.destroy', $rev->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')
@@ -37,7 +37,7 @@
             </div>
 
             @if ((Auth::check() && Auth::user()->isAdmin()) || (Auth::check() && Auth::user()->isMember()))
-                <a href="{{ route('review.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto">Add Review</a>
+                <a href="{{ route('Review.create') }}" class="btn btn-success d-grid gap-2 col-6 mx-auto">Add Review</a>
             @endif
 
     </section>

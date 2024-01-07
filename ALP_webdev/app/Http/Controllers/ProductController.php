@@ -31,7 +31,7 @@ class ProductController extends Controller
         if (Auth::check() && Auth::user()->isAdmin()) {
             $categories = Category::all(); // Retrieve categories for the create form
             return view(
-                'product.create',
+                'Product.create',
                 [
                     "pagetitle" => 'Add Product',
                     "maintitle" => 'Add Product Detail',
@@ -40,7 +40,7 @@ class ProductController extends Controller
             );
         }
         else {
-            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Product.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -62,10 +62,10 @@ class ProductController extends Controller
                 'product_desc' => $request->input('product_desc'),
             ]);
 
-            return redirect()->route('product.index')->with('success', 'Product created successfully');
+            return redirect()->route('Product.index')->with('success', 'Product created successfully');
         }
         else {
-            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Product.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -86,13 +86,13 @@ class ProductController extends Controller
 
         if (Auth::check() && Auth::user()->isAdmin()) {
             $categories = Category::all();
-            return view('product.edit', [
+            return view('Product.edit', [
                 "pagetitle" => 'Edit Product',
                 "maintitle" => 'Edit Product Detail',
             ],
             compact('product', 'categories'));
         } else {
-            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Product.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -119,9 +119,9 @@ class ProductController extends Controller
                 'product_image' => $newImagePath,
             ]);
 
-            return redirect()->route('product.index')->with('success', 'Product updated successfully');
+            return redirect()->route('Product.index')->with('success', 'Product updated successfully');
         } else {
-            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Product.index')->with('error', 'Unauthorized access');
         }
     }
 
@@ -134,9 +134,9 @@ class ProductController extends Controller
 
             $product->delete();
 
-            return redirect()->route('product.index')->with('success', 'Product deleted successfully');
+            return redirect()->route('Product.index')->with('success', 'Product deleted successfully');
         } else {
-            return redirect()->route('product.index')->with('error', 'Unauthorized access');
+            return redirect()->route('Product.index')->with('error', 'Unauthorized access');
         }
     }
 

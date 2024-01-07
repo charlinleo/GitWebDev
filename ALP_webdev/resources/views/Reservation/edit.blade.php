@@ -15,7 +15,7 @@
             </div>
 
             @if ((Auth::check() && Auth::user()->isAdmin()))
-                <form action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}" method="POST"
+                <form action="{{ route('Reservation.update', ['reservation' => $reservation->id]) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

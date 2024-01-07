@@ -15,7 +15,7 @@
         </div>
 
         @if (Auth::check() && Auth::user()->isAdmin())
-                <form action="{{ route('product.update', ['product' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('Product.update', ['product' => $product->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
